@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net481</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Version>0.1.0</Version>
+    <Authors>Carbonate</Authors>
+    <Description>A third-party cross-platform Minecraft Launcher designed for Minecraft Servers that require a proprietary client.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="libServerEase.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="libServerEase.dll" />
+  </ItemGroup>
+
+</Project>
