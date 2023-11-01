@@ -1,0 +1,10 @@
+#ifndef SERVEREASE_PROPERTY_H
+#define SERVEREASE_PROPERTY_H
+
+#include "util.h"
+
+#define PROJECT_VERSION "@PROJECT_VERSION@"
+
+extern "C" EXPORT const char* GetLibraryVersion();
+
+#endif //SERVEREASE_PROPERTY_H
