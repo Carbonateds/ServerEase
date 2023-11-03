@@ -14,3 +14,14 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
         LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_subdirectory(./test)
+
+if (CMAKE_SYSTEM_NAME MATCHES "Windows")
+    MESSAGE("Current Compiling System is Microsoft Windows.")
+    add_compile_definitions(WINDOWS)
+elseif (CMAKE_SYSTEM_NAME MATCHES "Linux")
+    MESSAGE("Current Compiling System is GNU/Linux.")
+    add_compile_definitions(WINDOWS)
+elseif (CMAKE_SYSTEM_NAME MATCHES "Darwin")
+    MESSAGE("Current Compiling System is Apple macOS.")
+    add_compile_definitions(WINDOWS)
+endif ()
