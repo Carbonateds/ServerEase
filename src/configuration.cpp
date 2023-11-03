@@ -160,3 +160,10 @@ bool SetLanguage(const char* lang)
     }
     else return false;
 }
+
+/**
+ * configuration.cpp TODOs List:
+ * TODO: I. Implement a feature to store the user's customized size of the MainWindow and retrieve this value upon each startup.
+ * TODO: II. Implement a feature to store user's selected directory as default game files folder.
+ * TODO: III. Implement a feature to store the user's preferred default Microsoft Account.
+ */
