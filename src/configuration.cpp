@@ -1,6 +1,7 @@
 #include <stdexcept>
 #include <filesystem>
 #include <fstream>
+#include <codecvt>
 
 #ifdef WINDOWS
     #include <shlobj.h>
