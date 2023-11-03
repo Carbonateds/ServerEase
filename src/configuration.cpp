@@ -19,6 +19,7 @@ configuration GetLocalDefaultConfig();
 fs::path config_file_path;
 configuration config;
 
+///Initialize the configuration data. Invoke this before calling any functions in this file.
 void Initialize()
 {
     std::wstring user_data_dir; //Indicate the directory where user-specific data is stored.
@@ -134,6 +135,9 @@ configuration GetLocalDefaultConfig()
     default_config.lang = default_lang_name;
     return default_config;
 }
+
+//All the functions below must be called after Initialize() has been invoked.
+//Do not attempt to get/set any value prior to the initialization.
 
 const char* GetLanguage()
 {

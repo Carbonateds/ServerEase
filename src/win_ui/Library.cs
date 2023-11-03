@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServerEase
 {
@@ -18,8 +14,14 @@ namespace ServerEase
         private static extern bool FreeLibrary(IntPtr hLibModule);
 
         public delegate IntPtr DGetLibraryVersion();
+        public delegate void DInitialize();
+        public delegate IntPtr DGetLanguage();
+        public delegate bool DSetLanguage(IntPtr lang);
 
         public static DGetLibraryVersion GetLibraryVersion;
+        public static DInitialize Initialize;
+        public static DGetLanguage GetLanguage;
+        public static DSetLanguage SetLanguage;
 
         private static IntPtr LibraryModule;
 
@@ -30,6 +32,9 @@ namespace ServerEase
         {
             LibraryModule = LoadLibrary(Path.Combine(Path.GetTempPath(), "libServerEase.dll"));
             GetLibraryVersion = Marshal.GetDelegateForFunctionPointer<DGetLibraryVersion>(GetProcAddress(LibraryModule, "GetLibraryVersion"));
+            Initialize = Marshal.GetDelegateForFunctionPointer<DInitialize>(GetProcAddress(LibraryModule, "Initialize"));
+            GetLanguage = Marshal.GetDelegateForFunctionPointer<DGetLanguage>(GetProcAddress(LibraryModule, "GetLanguage"));
+            SetLanguage = Marshal.GetDelegateForFunctionPointer<DSetLanguage>(GetProcAddress(LibraryModule, "SetLanguage"));
         }
 
         /// <summary>

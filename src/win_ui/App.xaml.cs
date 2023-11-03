@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Reflection;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace ServerEase
 {
@@ -23,7 +18,12 @@ namespace ServerEase
 
             Library.Load(); //Load the core library into memory, so the functions can be called.
 
-            Trace.Write("Current Library Version: " + Marshal.PtrToStringAnsi(Library.GetLibraryVersion()));
+            Trace.WriteLine("Current Library Version: " + Marshal.PtrToStringAnsi(Library.GetLibraryVersion()));
+
+            Library.Initialize(); //Intialize configuration by invoking the core library function.
+
+            Current.Resources.Clear();
+            Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Language\\" + Marshal.PtrToStringAnsi(Library.GetLanguage()) + ".xaml", UriKind.Relative) });
         }
 
         /// <summary>
