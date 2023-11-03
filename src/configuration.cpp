@@ -84,7 +84,7 @@ configuration GetLocalDefaultConfig()
 #pragma region Determin Default Language
 
     //Logics determine default language name.
-    std::string default_locale_name, user_locale;
+    std::string default_lang_name, user_locale, user_lang; //Final result, locale with a region info and language name without a region info.
 
     //Determine the user's locale language, based on the platform.
 #ifdef WINDOWS
@@ -98,11 +98,15 @@ configuration GetLocalDefaultConfig()
     else throw;
 #endif
 
-    //Check whether user's language is supported; if not, set it to en-US.
+    //Exclude region info.
+    std::istringstream slicer(user_locale);
+    std::getline(slicer, user_lang, '-');
+
+    //Check whether user's language is supported; if not, set it to en.
     bool language_supported = false;
     for (const std::string &lang : SUPPORTED_LANGUAGES)
     {
-        if (lang == user_locale)
+        if (lang == user_lang)
         {
             language_supported = true;
             break;
@@ -110,13 +114,24 @@ configuration GetLocalDefaultConfig()
     }
 
     if (language_supported)
-        default_locale_name = user_locale;
+    {
+        //Further check is needed if the user language is Chinese.
+        if (user_lang == "zh")
+        {
+            //Determine whether Simplified or Tradition Chinese should be used.
+            if (user_locale == "zh-CN")
+                default_lang_name = "zh-CN";
+            else
+                default_lang_name = "zh-TR";
+        }
+        else default_lang_name = user_lang;
+    }
     else
-        default_locale_name = SUPPORTED_LANGUAGES[0];
+        default_lang_name = SUPPORTED_LANGUAGES[0];
 
 #pragma endregion Determin Default Language
 
-    default_config.lang = default_locale_name;
+    default_config.lang = default_lang_name;
     return default_config;
 }
 

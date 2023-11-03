@@ -11,7 +11,7 @@ typedef struct configuration
 }
 configuration;
 
-const std::vector<std::string> SUPPORTED_LANGUAGES {"en-US", "zh-CN", "zh-TR", "de-DE", "fr-FR", "ru-RU"};
+const std::vector<std::string> SUPPORTED_LANGUAGES {"en", "zh", "de", "fr", "ru"};
 
 extern "C" EXPORT void Initialize();
 extern "C" EXPORT const char* GetLanguage();
