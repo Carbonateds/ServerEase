@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ServerEase"
         xmlns:pu="https://opensource.panuon.com/wpf-ui"
         mc:Ignorable="d"
-        Title="{DynamicResource MainWindowTitle}" Height="450" Width="800" WindowStartupLocation="CenterScreen" SizeChanged="Window_SizeChanged">
+        Title="{DynamicResource MainWindowTitle}" MinHeight="500" MinWidth="800" Height="500" Width="800" WindowStartupLocation="CenterScreen" SizeChanged="Window_SizeChanged" Closed="Window_Closed" Initialized="Window_Initialized">
     <WindowChrome.WindowChrome>
         <WindowChrome NonClientFrameEdges="Left,Bottom,Right" CaptionHeight="36" ResizeBorderThickness="15" UseAeroCaptionButtons="False"/>
     </WindowChrome.WindowChrome>

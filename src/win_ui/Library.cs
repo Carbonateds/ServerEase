@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using static ServerEase.Library;
 
 namespace ServerEase
 {
@@ -17,11 +18,17 @@ namespace ServerEase
         public delegate void DInitialize();
         public delegate IntPtr DGetLanguage();
         public delegate bool DSetLanguage(IntPtr lang);
+        public delegate double DGetMainWindowHeight();
+        public delegate double DGetMainWindowWidth();
+        public delegate bool DSetMainWindowSize(double height, double width);
 
         public static DGetLibraryVersion GetLibraryVersion;
         public static DInitialize Initialize;
         public static DGetLanguage GetLanguage;
         public static DSetLanguage SetLanguage;
+        public static DGetMainWindowHeight GetMainWindowHeight;
+        public static DGetMainWindowWidth GetMainWindowWidth;
+        public static DSetMainWindowSize SetMainWindowSize;
 
         private static IntPtr LibraryModule;
 
@@ -35,6 +42,9 @@ namespace ServerEase
             Initialize = Marshal.GetDelegateForFunctionPointer<DInitialize>(GetProcAddress(LibraryModule, "Initialize"));
             GetLanguage = Marshal.GetDelegateForFunctionPointer<DGetLanguage>(GetProcAddress(LibraryModule, "GetLanguage"));
             SetLanguage = Marshal.GetDelegateForFunctionPointer<DSetLanguage>(GetProcAddress(LibraryModule, "SetLanguage"));
+            GetMainWindowHeight = Marshal.GetDelegateForFunctionPointer<DGetMainWindowHeight>(GetProcAddress(LibraryModule, "GetMainWindowHeight"));
+            GetMainWindowWidth = Marshal.GetDelegateForFunctionPointer<DGetMainWindowWidth>(GetProcAddress(LibraryModule, "GetMainWindowWidth"));
+            SetMainWindowSize = Marshal.GetDelegateForFunctionPointer<DSetMainWindowSize>(GetProcAddress(LibraryModule, "SetMainWindowSize"));
         }
 
         /// <summary>

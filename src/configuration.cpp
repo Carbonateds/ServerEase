@@ -15,9 +15,10 @@ namespace fs = std::filesystem;
 using json = nlohmann::json;
 
 configuration GetLocalDefaultConfig();
+bool FlushConfigFile(const configuration &write_config);
 
 fs::path config_file_path;
-configuration config;
+configuration config {};
 
 ///Initialize the configuration data. Invoke this before calling any functions in this file.
 void Initialize()
@@ -49,6 +50,8 @@ void Initialize()
             {
                 json config_content = json::parse(config_file);
                 config.lang = config_content["lang"];
+                config.main_window_height = config_content["main_window"]["height"];
+                config.main_window_width = config_content["main_window"]["width"];
             }
             else throw;
         }
@@ -61,15 +64,8 @@ void Initialize()
     {
         try
         {
-            std::ofstream config_file(config_file_path);
-            if (config_file.is_open())
-            {
-                config = GetLocalDefaultConfig();
-                json json_content;
-                json_content["lang"] = config.lang;
-                config_file << json_content.dump(4) << std::endl;
-            }
-            else throw;
+            config = GetLocalDefaultConfig();
+            if(!FlushConfigFile(config)) throw;
         }
         catch (...)
         {
@@ -80,7 +76,7 @@ void Initialize()
 
 configuration GetLocalDefaultConfig()
 {
-    configuration default_config;
+    configuration default_config {};
 
 #pragma region Determin Default Language
 
@@ -139,6 +135,21 @@ configuration GetLocalDefaultConfig()
 //All the functions below must be called after Initialize() has been invoked.
 //Do not attempt to get/set any value prior to the initialization.
 
+bool FlushConfigFile(const configuration &write_config)
+{
+    std::ofstream config_file(config_file_path);
+    if (config_file.is_open())
+    {
+        json config_content;
+        config_content["lang"] = write_config.lang;
+        config_content["main_window"]["height"] = write_config.main_window_height;
+        config_content["main_window"]["width"] = write_config.main_window_width;
+        config_file << config_content.dump(4) << std::endl;
+        return true;
+    }
+    else return false;
+}
+
 const char* GetLanguage()
 {
     return config.lang.c_str();
@@ -146,24 +157,36 @@ const char* GetLanguage()
 
 /// Set UI Language and flush it to the configuration file.
 /// \param lang To set language name.
-/// \return Whether the setting is succeed.
+/// \return Whether the setting operation is succeed.
 bool SetLanguage(const char* lang)
 {
     config.lang = lang;
-    std::ofstream config_file(config_file_path);
-    if (config_file.is_open())
-    {
-        json config_content;
-        config_content["lang"] = config.lang;
-        config_file << config_content.dump(4) << std::endl;
-        return true;
-    }
-    else return false;
+    return FlushConfigFile(config);
+}
+
+double GetMainWindowHeight()
+{
+    return config.main_window_height;
+}
+double GetMainWindowWidth()
+{
+    return config.main_window_width;
+}
+
+/// Set the size of the MainWindow in the user interface.
+/// \param height Height of the MainWindow.
+/// \param width Width of the MainWindow.
+/// \return Whether the setting operation is succeed.
+bool SetMainWindowSize(double height, double width)
+{
+    config.main_window_height = height;
+    config.main_window_width = width;
+    return FlushConfigFile(config);
 }
 
 /**
  * configuration.cpp TODOs List:
- * TODO: I. Implement a feature to store the user's customized size of the MainWindow and retrieve this value upon each startup.
+ * DONE: I. Implement a feature to store the user's customized size of the MainWindow and retrieve this value upon each startup.
  * TODO: II. Implement a feature to store user's selected directory as default game files folder.
  * TODO: III. Implement a feature to store the user's preferred default Microsoft Account.
  */
