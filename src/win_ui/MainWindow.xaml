@@ -4,9 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServerEase"
+        xmlns:pu="https://opensource.panuon.com/wpf-ui"
         mc:Ignorable="d"
-        Title="{DynamicResource MainWindowTitle}" Height="450" Width="800">
+        Title="{DynamicResource MainWindowTitle}" Height="450" Width="800" WindowStartupLocation="CenterScreen" SizeChanged="Window_SizeChanged">
+    <WindowChrome.WindowChrome>
+        <WindowChrome NonClientFrameEdges="Left,Bottom,Right" CaptionHeight="36" ResizeBorderThickness="15" UseAeroCaptionButtons="False"/>
+    </WindowChrome.WindowChrome>
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Background="#FF262626" Grid.RowSpan="2"/>
+        <Label Content="{DynamicResource MainWindowTitle}" FontSize="13px" Foreground="White" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+        <Button x:Name="CloseButton" Content="&#xE8BB;" FontFamily="Segoe MDL2 Assets" FontSize="10px" HorizontalAlignment="Right" Width="42" Margin="0,0,4,0" Background="Transparent" Foreground="White" pu:ButtonHelper.HoverBackground="Red" WindowChrome.IsHitTestVisibleInChrome="True" Click="CloseButton_Click"/>
+        <Button x:Name="MaximizeButton" Content="&#xE922;" FontFamily="Segoe MDL2 Assets" FontSize="10px" HorizontalAlignment="Right" Width="42" Margin="0,0,46,0" Background="Transparent" Foreground="White" pu:ButtonHelper.HoverBackground="#FF5B5B5B" WindowChrome.IsHitTestVisibleInChrome="True" Click="MaximizeButton_Click"/>
+        <Button x:Name="MinimizeButton" Content="&#xE921;" FontFamily="Segoe MDL2 Assets" FontSize="10px" HorizontalAlignment="Right" Width="42" Margin="0,0,88,0" Background="Transparent" Foreground="White" pu:ButtonHelper.HoverBackground="#FF5B5B5B" WindowChrome.IsHitTestVisibleInChrome="True" Click="MinimizeButton_Click"/>
     </Grid>
 </Window>

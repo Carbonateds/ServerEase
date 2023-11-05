@@ -24,5 +24,43 @@ namespace ServerEase
         {
             InitializeComponent();
         }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            switch(WindowState)
+            {
+                case WindowState.Normal:
+                    WindowState = WindowState.Maximized;
+                    break;
+                default:
+                    WindowState = WindowState.Normal;
+                    break;
+            }
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            switch (WindowState)
+            {
+                case WindowState.Normal:
+                    BorderThickness = new Thickness(0);
+                    MaximizeButton.Content = "\uE922";
+                    break;
+                default:
+                    BorderThickness = new Thickness(8);
+                    MaximizeButton.Content = "\uE923";
+                    break;
+            }
+        }
     }
 }

@@ -18,4 +18,8 @@
     <EmbeddedResource Include="libServerEase.dll" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Panuon.WPF.UI" Version="1.1.16.2" />
+  </ItemGroup>
+
 </Project>

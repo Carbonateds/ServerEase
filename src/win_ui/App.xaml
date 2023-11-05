@@ -6,6 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Panuon.WPF.UI;component/Control.xaml"/>
                 <ResourceDictionary Source="Language\en.xaml"/>
                 <ResourceDictionary Source="Language\zh-CN.xaml"/>
             </ResourceDictionary.MergedDictionaries>
