@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ServerEase
 {
@@ -84,6 +74,11 @@ namespace ServerEase
                 Library.SetMainWindowSize(0, 0);
             else
                 Library.SetMainWindowSize(Height, Width);
+        }
+
+        private void SettingButton_Click(object sender, RoutedEventArgs e)
+        {
+            new SettingWindow() { Owner = this }.Show();
         }
     }
 }

@@ -12,10 +12,14 @@
 
   <ItemGroup>
     <None Remove="libServerEase.dll" />
+    <None Remove="Panuon.WPF.dll" />
+    <None Remove="Panuon.WPF.UI.dll" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="libServerEase.dll" />
+    <EmbeddedResource Include="Panuon.WPF.dll" />
+    <EmbeddedResource Include="Panuon.WPF.UI.dll" />
   </ItemGroup>
 
   <ItemGroup>

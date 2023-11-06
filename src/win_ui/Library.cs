@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
-using static ServerEase.Library;
 
 namespace ServerEase
 {
@@ -15,7 +14,7 @@ namespace ServerEase
         private static extern bool FreeLibrary(IntPtr hLibModule);
 
         public delegate IntPtr DGetLibraryVersion();
-        public delegate void DInitialize();
+        public delegate bool DInitialize();
         public delegate IntPtr DGetLanguage();
         public delegate bool DSetLanguage(IntPtr lang);
         public delegate double DGetMainWindowHeight();

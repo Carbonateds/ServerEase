@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--This key indicates whether this language file has been machine-translated.-->
+    <sys:Boolean x:Key="MachineTranslate">True</sys:Boolean>
+    <sys:String x:Key="MachineTranslateWarning">Похоже, что текущий используемый язык мог быть переведен машинным способом, что могло привести к ошибкам в структуре предложений или выборе слов. Пожалуйста, помогите нам улучшить перевод. С уважением.</sys:String>
+
+    <!--MainWindow Texts-->
+    <sys:String x:Key="MainWindowTitle">ServerEase Программа Запуска</sys:String>
+
+    <!--SettingWindow Texts-->
+    <sys:String x:Key="SettingWindowTitle">Параметры</sys:String>
+    <sys:String x:Key="SaveButtonContent">Сохранять</sys:String>
+    <sys:String x:Key="CancelButtonContent">Отмена</sys:String>
+    <sys:String x:Key="GeneralSettingButtonContent">Общий</sys:String>
+
+    <!--GeneralPage Texts-->
+    <sys:String x:Key="LanguageLabelContent">Язык</sys:String>
+</ResourceDictionary>

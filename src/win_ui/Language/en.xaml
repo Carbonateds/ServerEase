@@ -1,5 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--This key indicates whether this language file has been machine-translated.-->
+    <sys:Boolean x:Key="MachineTranslate">False</sys:Boolean>
+    <sys:String x:Key="MachineTranslateWarning">It appears that the current language being used may have been machine-translated, which could result in mistakes in sentence structure or word choice. Please assist us in improving the translation. Regards.</sys:String>
+    
+    <!--MainWindow Texts-->
     <sys:String x:Key="MainWindowTitle">ServerEase Launcher</sys:String>
+    
+    <!--SettingWindow Texts-->
+    <sys:String x:Key="SettingWindowTitle">Options</sys:String>
+    <sys:String x:Key="SaveButtonContent">Save</sys:String>
+    <sys:String x:Key="CancelButtonContent">Cancel</sys:String>
+    <sys:String x:Key="GeneralSettingButtonContent">General</sys:String>
+    
+    <!--GeneralPage Texts-->
+    <sys:String x:Key="LanguageLabelContent">Language</sys:String>
 </ResourceDictionary>

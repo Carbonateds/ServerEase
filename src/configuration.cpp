@@ -20,8 +20,9 @@ bool FlushConfigFile(const configuration &write_config);
 fs::path config_file_path;
 configuration config {};
 
-///Initialize the configuration data. Invoke this before calling any functions in this file.
-void Initialize()
+/// Initialize the configuration data. Invoke this before calling any functions in this file.
+/// \return Indicate whether this is the first time it being launched.
+bool Initialize()
 {
     std::wstring user_data_dir; //Indicate the directory where user-specific data is stored.
 
@@ -43,6 +44,7 @@ void Initialize()
 
     if (fs::exists(config_file_path) && fs::is_regular_file(config_file_path))
     {
+        //If the configuration file exists.
         try
         {
             std::ifstream config_file(config_file_path);
@@ -54,6 +56,7 @@ void Initialize()
                 config.main_window_width = config_content["main_window"]["width"];
             }
             else throw;
+            return false;
         }
         catch (...)
         {
@@ -62,10 +65,12 @@ void Initialize()
     }
     else
     {
+        //If the configuration file does not exist.
         try
         {
             config = GetLocalDefaultConfig();
             if(!FlushConfigFile(config)) throw;
+            return true;
         }
         catch (...)
         {

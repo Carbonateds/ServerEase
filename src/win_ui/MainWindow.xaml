@@ -20,5 +20,7 @@
         <Button x:Name="CloseButton" Content="&#xE8BB;" FontFamily="Segoe MDL2 Assets" FontSize="10px" HorizontalAlignment="Right" Width="42" Margin="0,0,4,0" Background="Transparent" Foreground="White" pu:ButtonHelper.HoverBackground="Red" WindowChrome.IsHitTestVisibleInChrome="True" Click="CloseButton_Click"/>
         <Button x:Name="MaximizeButton" Content="&#xE922;" FontFamily="Segoe MDL2 Assets" FontSize="10px" HorizontalAlignment="Right" Width="42" Margin="0,0,46,0" Background="Transparent" Foreground="White" pu:ButtonHelper.HoverBackground="#FF5B5B5B" WindowChrome.IsHitTestVisibleInChrome="True" Click="MaximizeButton_Click"/>
         <Button x:Name="MinimizeButton" Content="&#xE921;" FontFamily="Segoe MDL2 Assets" FontSize="10px" HorizontalAlignment="Right" Width="42" Margin="0,0,88,0" Background="Transparent" Foreground="White" pu:ButtonHelper.HoverBackground="#FF5B5B5B" WindowChrome.IsHitTestVisibleInChrome="True" Click="MinimizeButton_Click"/>
+        <Button x:Name="SettingButton" Content="&#xE713;" FontFamily="Segoe MDL2 Assets" FontSize="12px" HorizontalAlignment="Right" Width="42" Margin="0,0,130,0" Background="Transparent" Foreground="White" pu:ButtonHelper.HoverBackground="#FF5B5B5B" WindowChrome.IsHitTestVisibleInChrome="True" Click="SettingButton_Click"/>
+        <Border x:Name="MainOverlayer" Visibility="Collapsed" Background="#66000000" IsHitTestVisible="False"  Grid.RowSpan="2"/>
     </Grid>
 </Window>

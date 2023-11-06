@@ -1,0 +1,30 @@
+﻿<Page x:Class="ServerEase.SettingPage.GeneralPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ServerEase.SettingPage"
+      xmlns:pu="https://opensource.panuon.com/wpf-ui"
+      mc:Ignorable="d" 
+      d:DesignHeight="249" d:DesignWidth="349"
+      Title="GeneralPage" Loaded="Page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="{DynamicResource LanguageLabelContent}" FontSize="14px" Foreground="White" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,5,5"/>
+        <ComboBox x:Name="LanguageComboBox" Grid.Column="1" Height="23" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5,0,0,5" Foreground="White" Background="Transparent" pu:ComboBoxHelper.CornerRadius="3" pu:ComboBoxHelper.ItemsHeight="20" pu:ComboBoxHelper.ItemsHoverBackground="#FF5B5B5B" pu:ComboBoxHelper.ItemsSelectedBackground="LightGray" SelectionChanged="LanguageComboBox_SelectionChanged">
+            <ComboBoxItem Content="English"/>
+            <ComboBoxItem Content="中文（简体）"/>
+            <ComboBoxItem Content="中文（繁體）"/>
+            <ComboBoxItem Content="Deutsch"/>
+            <ComboBoxItem Content="Русский"/>
+            <ComboBoxItem Content="Français"/>
+        </ComboBox>
+    </Grid>
+</Page>

@@ -15,7 +15,7 @@ configuration;
 
 const std::vector<std::string> SUPPORTED_LANGUAGES {"en", "zh", "de", "fr", "ru"};
 
-extern "C" EXPORT void Initialize();
+extern "C" EXPORT bool Initialize();
 extern "C" EXPORT const char* GetLanguage();
 extern "C" EXPORT bool SetLanguage(const char* lang);
 extern "C" EXPORT double GetMainWindowHeight();

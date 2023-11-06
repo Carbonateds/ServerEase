@@ -1,5 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--This key indicates whether this language file has been machine-translated.-->
+    <sys:Boolean x:Key="MachineTranslate">False</sys:Boolean>
+    <sys:String x:Key="MachineTranslateWarning">看起来您目前正在使用的语言可能是经机器翻译而得的，所以在修辞表达或遣词造句上许有不当之处，敬望谅解。请协助我们改进翻译。</sys:String>
+
+    <!--MainWindow Texts-->
     <sys:String x:Key="MainWindowTitle">ServerEase 启动器</sys:String>
+
+    <!--SettingWindow Texts-->
+    <sys:String x:Key="SettingWindowTitle">选项</sys:String>
+    <sys:String x:Key="SaveButtonContent">保存</sys:String>
+    <sys:String x:Key="CancelButtonContent">取消</sys:String>
+    <sys:String x:Key="GeneralSettingButtonContent">通用</sys:String>
+
+    <!--GeneralPage Texts-->
+    <sys:String x:Key="LanguageLabelContent">语言</sys:String>
 </ResourceDictionary>
