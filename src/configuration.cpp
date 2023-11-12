@@ -37,7 +37,7 @@ bool Initialize()
 #endif
 
     fs::path config_dir = fs::path(user_data_dir) / "ServerEase";
-    config_file_path = config_dir / "Config.json";
+    config_file_path = config_dir / "config.json";
 
     if (!(fs::exists(config_dir) && fs::is_directory(config_dir)))
         fs::create_directory(config_dir);
